@@ -24,7 +24,6 @@ exports.register = async (req, res) => {
 // ユーザーログイン用API
 exports.login = async (req, res) => {
   const { username, password } = req.body;
-  console.log("username, password ", username, password);
   try {
     const user = await User.findOne({ username: username });
     if (!user) {
