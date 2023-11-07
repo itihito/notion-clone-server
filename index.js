@@ -22,5 +22,5 @@ try {
 }
 
 app.listen(PORT, () => {
-  console.log("ローカルサーバー起動中・・・");
+  console.log("Server starting...");
 });
