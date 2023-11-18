@@ -24,7 +24,8 @@ app.use("/api/v1", require("./src/v1/routes"));
 try {
   mongoose.connect(process.env.MONGODB_URL);
 } catch (err) {
-  console.log(err);
+  console.error("MongoDB connection error:", err);
+  process.exit(1);
 }
 
 app.listen(PORT, () => {
