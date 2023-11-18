@@ -4,7 +4,6 @@ const mongoose = require("mongoose");
 
 const app = express();
 const PORT = 5000;
-const origin = IS_PRODUCTION ? process.env.ORIGIN : "http://127.0.0.1:5173";
 const cors = require("cors");
 
 app.use(
