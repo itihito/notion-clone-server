@@ -12,9 +12,10 @@ console.log("origin", origin);
 // カスタムミドルウェアを定義
 const logOriginMiddleware = (req, res, next) => {
   console.log("Request Origin:", req.get("origin"));
+  console.log("Request Path:", req.path);
+  console.log("Request Method:", req.method);
   next();
 };
-
 // 使用するミドルウェアを設定
 app.use(logOriginMiddleware);
 
