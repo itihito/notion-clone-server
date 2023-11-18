@@ -43,6 +43,11 @@ router.post(
   userController.login
 );
 
+router.get("/login", (req, res) => {
+  // 何も処理を行わずに200を返す
+  res.status(200).send("OK");
+});
+
 // JWT認証API
 router.post("/verify-token", tokenHandler.verifyToken, (req, res) => {
   return res.status(200).json({ user: req.user });
