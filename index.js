@@ -7,16 +7,9 @@ const app = express();
 const PORT = 5000;
 const origin = IS_PRODUCTION ? process.env.ORIGIN : "http://127.0.0.1:5173";
 const cors = require("cors");
-console.log("origin", origin);
+const logOriginMiddleware = require("./src/v1/middlewares/middleware.js");
 
-// カスタムミドルウェアを定義
-const logOriginMiddleware = (req, res, next) => {
-  console.log("Request Origin:", req.get("origin"));
-  console.log("Request Path:", req.path);
-  console.log("Request Method:", req.method);
-  next();
-};
-// 使用するミドルウェアを設定
+// ミドルウェアを設定
 app.use(logOriginMiddleware);
 
 app.use(
