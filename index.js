@@ -1,15 +1,16 @@
 require("dotenv").config();
+const IS_PRODUCTION = process.env.NODE_ENV === "production";
 const express = require("express");
 const mongoose = require("mongoose");
 
 const app = express();
 const PORT = 5000;
+const origin = IS_PRODUCTION ? process.env.origin : "http://127.0.0.1:5173";
 const cors = require("cors");
 
 app.use(
   cors({
-    // origin: "http://127.0.0.1:5173",
-    origin: "https://notion-clone-client.vercel.app/",
+    origin: origin,
   })
 );
 app.use(express.json());
