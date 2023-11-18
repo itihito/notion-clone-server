@@ -1,14 +1,16 @@
+const IS_PRODUCTION = process.env.NODE_ENV === "production";
 const express = require("express");
 const mongoose = require("mongoose");
 
 const app = express();
 const PORT = 5000;
+const origin = IS_PRODUCTION ? process.env.ORIGIN : "http://127.0.0.1:5173";
 require("dotenv").config();
 const cors = require("cors");
 
 app.use(
   cors({
-    origin: "http://127.0.0.1:5173",
+    origin: origin,
   })
 );
 app.use(express.json());
