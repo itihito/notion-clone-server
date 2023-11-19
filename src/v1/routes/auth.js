@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const { body } = require("express-validator");
-require("dotenv").config();
 
 const User = require("../models/user");
 const validation = require("../handlers/validation.js");
@@ -42,11 +41,6 @@ router.post(
   validation.validate,
   userController.login
 );
-
-router.get("/login", (req, res) => {
-  // 何も処理を行わずに200を返す
-  res.status(200).send("OK");
-});
 
 // JWT認証API
 router.post("/verify-token", tokenHandler.verifyToken, (req, res) => {
